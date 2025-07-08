@@ -214,7 +214,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-             <p> Hi, I'm Sachin Dangi</p>
+            <p> Hi, I&apos;m Sachin Dangi</p>
             </motion.h1>
 
             {/* Title */}
