@@ -48,21 +48,24 @@ export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <motion.nav variants={navVariants} initial="hidden" animate="visible" className="bg-white  shadow-md sticky top-0 z-50">
+    <motion.nav variants={navVariants} initial="hidden" animate="visible" 
+    className="  bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 
+    text-white  shadow-md sticky top-0 z-50"
+    >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Left: Logo */}
-        <div className="text-2xl font-bold text-gray-800">Sachin.dev</div>
+        <div className="text-2xl font-bold text-gray-300">Sachin.dev</div>
 
         {/* Hamburger Button (Mobile) */}
         <button
-          className="sm:hidden text-3xl text-gray-800"
+          className="sm:hidden text-3xl text-gray-300"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
         </button>
 
         {/* Right: Menu Items */}
-        <motion.ul className={`sm:flex space-x-18 font-medium text-gray-700 text-lg ${menuOpen ? 'block mt-4' : 'hidden'} sm:mt-0 sm:space-x-18 sm:block`}>
+        <motion.ul className={`sm:flex space-x-18 font-medium text-gray-200 text-lg ${menuOpen ? 'block mt-4' : 'hidden'} sm:mt-0 sm:space-x-18 sm:block`}>
           <motion.li
             whileHover="hover"
             variants={linkVariants}

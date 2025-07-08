@@ -90,8 +90,7 @@ const About = () => {
                 transition={{ delay: 0.2 }}
                 viewport={{ once: true }}
               >
-               <p> Hi, I&apos;m <span className="text-blue-600 dark:text-blue-400 font-bold">Sachin Dangi</span> — a passionate MERN Stack Developer dedicated to crafting exceptional digital experiences.</p>
-
+                Hi, I'm <span className="text-blue-600 dark:text-blue-400 font-bold">Sachin Dangi</span> — a passionate MERN Stack Developer dedicated to crafting exceptional digital experiences.
               </motion.p>
 
               <motion.p

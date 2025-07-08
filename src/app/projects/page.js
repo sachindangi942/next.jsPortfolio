@@ -45,7 +45,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="  min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 text-white py-16 px-4 bg-white dark:bg-gray-900 transition-all duration-500"
+      className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 text-white py-16 px-4 transition-all duration-500"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -63,22 +63,22 @@ const Projects = () => {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border dark:border-gray-700 transition-transform hover:translate-y-[-5px] hover:shadow-lg"
+            className="bg-gray-800/50 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-gray-700 transition-transform hover:-translate-y-1.5 hover:shadow-xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+            <h3 className="text-xl font-semibold text-white mb-2">
               {project.title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">{project.description}</p>
+            <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
 
             <div className="flex flex-wrap justify-center gap-2 mb-4">
               {project.technologies.map((tech, i) => (
                 <motion.span
                   key={i}
-                  className="text-xs bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full"
+                  className="text-xs bg-gray-700 text-white px-3 py-1 rounded-full"
                   whileHover={{ scale: 1.1 }}
                 >
                   {tech}
@@ -97,7 +97,7 @@ const Projects = () => {
               <a
                 href={project.githubLink}
                 target="_blank"
-                className="inline-flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-black transition"
+                className="inline-flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-black transition"
               >
                 GitHub <FaGithub />
               </a>
