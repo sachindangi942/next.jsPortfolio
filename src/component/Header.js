@@ -1,38 +1,7 @@
-// import Link from "next/link";
-
-// export const Header = () => {
-//     return (
-//         <nav className="bg-white shadow-md sticky top-0 z-50">
-//             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-
-//                 {/* Left: Logo or Name */}
-//                 <div className="text-xl font-bold text-gray-800">Sachin.dev</div>
-
-//                 {/* Right: Menu Items */}
-//                 <ul className="flex text-gray-700 font-medium text-xl">
-//                     <li className="space-x-18">
-//                         <Link href="/" className="hover:text-blue-600  cursor-pointer">Home</Link>
-//                         <Link href="/skills" className="hover:text-blue-600 cursor-pointer">Skills</Link>
-//                         <Link href="/qualification" className="hover:text-blue-600 cursor-pointer">Qualification</Link>
-//                         <Link href="/projects" className="hover:text-blue-600 cursor-pointer">Projects</Link>
-//                         <Link href="/contact" className="hover:text-blue-600 cursor-pointer">Contact</Link>
-//                         <Link href="/about" className="hover:text-blue-600 cursor-pointer">About Me</Link>
-//                     </li>
-//                 </ul>
-//             </div>
-//         </nav>
-//     );
-// };
-
-
-
-
-
 'use client';
 import Link from "next/link";
-import { useState } from "react";
-import { motion } from "framer-motion";
-
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navVariants = {
   hidden: { opacity: 0, y: -20 },
@@ -40,71 +9,93 @@ const navVariants = {
 };
 
 const linkVariants = {
-  hover: { scale: 1.2, transition: { duration: 0.6 } },
+  hover: { scale: 1.1, transition: { duration: 0.3 } },
 };
-
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
+  }, [menuOpen]);
+
   return (
-    <motion.nav variants={navVariants} initial="hidden" animate="visible" 
-    className="  bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 
-    text-white  shadow-md sticky top-0 z-50"
-    >
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Left: Logo */}
-        <div className="text-2xl font-bold text-gray-300">Sachin.dev</div>
+    <>
+      {/* Navigation Bar */}
+      <motion.nav
+        variants={navVariants}
+        initial="hidden"
+        animate="visible"
+        className="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 
+        text-white shadow-md sticky top-0 z-50"
+      >
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center relative">
+          {/* Logo */}
+          <div className="hidden sm:block text-2xl font-bold text-gray-300">
+            MERN.Stack.Dev
+          </div>
 
-        {/* Hamburger Button (Mobile) */}
-        <button
-          className="sm:hidden text-3xl text-gray-300"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          ☰
-        </button>
+          {/* Hamburger (Mobile Only) */}
+          <button
+            className="sm:hidden text-3xl text-gray-300"
+            onClick={() => setMenuOpen(true)}
+          >
+            ☰
+          </button>
 
-        {/* Right: Menu Items */}
-        <motion.ul className={`sm:flex space-x-18 font-medium text-gray-200 text-lg ${menuOpen ? 'block mt-4' : 'hidden'} sm:mt-0 sm:space-x-18 sm:block`}>
-          <motion.li
-            whileHover="hover"
-            variants={linkVariants}
+          {/* Desktop Menu */}
+          <ul className="hidden sm:flex space-x-8 font-medium text-gray-200 text-lg">
+            {["Home", "Skills", "Qualification", "Projects", "About", "Contact"].map((label, i) => (
+              <motion.li
+                key={label}
+                variants={linkVariants}
+                whileHover="hover"
+              >
+                <Link href={label === "Home" ? "/" : `/${label.toLowerCase()}`} className="hover:text-blue-500">
+                  {label === "About" ? "About Me" : label}
+                </Link>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Drawer Menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.4 }}
+            className="fixed top-0 left-0 w-3/4 h-full bg-gray-900 bg-opacity-95 backdrop-blur-md 
+            z-50 p-6 space-y-6 text-white sm:hidden"
           >
-            <Link href="/" className="hover:text-blue-600">Home</Link>
-          </motion.li>
-          <motion.li
-            whileHover="hover"
-            variants={linkVariants}
-          >
-            <Link href="/skills" className="hover:text-blue-600">Skills</Link>
-          </motion.li>
-          <motion.li
-            whileHover="hover"
-            variants={linkVariants}
-          >
-            <Link href="/qualification" className="hover:text-blue-600">Qualification</Link>
-          </motion.li>
-          <motion.li
-            whileHover="hover"
-            variants={linkVariants}
-          >
-            <Link href="/projects" className="hover:text-blue-600">Projects</Link>
-          </motion.li>
-          <motion.li
-            whileHover="hover"
-            variants={linkVariants}
-          >
-            <Link href="/about" className="hover:text-blue-600">About Me</Link>
-          </motion.li>
-          <motion.li
-            whileHover="hover"
-            variants={linkVariants}
-          >
-            <Link href="/contact" className="hover:text-blue-600">Contact</Link>
-          </motion.li>
-        </motion.ul >
-      </div>
-    </motion.nav>
+            {/* Close Button */}
+            <button
+              className="text-2xl mb-4"
+              onClick={() => setMenuOpen(false)}
+            >
+              ✕
+            </button>
+
+            {/* Mobile Menu Links */}
+            <ul className="flex flex-col space-y-4 text-lg font-medium">
+              {["Home", "Skills", "Qualification", "Projects", "About", "Contact"].map((label) => (
+                <li key={label}>
+                  <Link
+                    href={label === "Home" ? "/" : `/${label.toLowerCase()}`}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {label === "About" ? "About Me" : label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
-
