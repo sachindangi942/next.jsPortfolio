@@ -10,7 +10,7 @@ const Home = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/sacin-dangi-s1a2c3hin",
+      url: "https://www.linkedin.com/in/sachin-s1a2c3hin",
       icon: <FaLinkedin className="text-blue-500" />,
       color: "hover:bg-blue-600/10"
     },
@@ -26,12 +26,6 @@ const Home = () => {
       icon: <FaWhatsapp className="text-green-500" />,
       color: "hover:bg-green-600/10"
     },
-    {
-      name: "LeetCode",
-      url: "#",
-      icon: <SiLeetcode className="text-yellow-500" />,
-      color: "hover:bg-yellow-600/10"
-    }
   ];
 
   return (
