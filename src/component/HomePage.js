@@ -3,7 +3,7 @@
 import { TypingTitle } from "@/component/TypedText";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaLinkedin, FaGithub, FaWhatsapp, FaArrowDown } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaWhatsapp, FaArrowDown, FaDownload } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
 const Home = () => {
@@ -55,7 +55,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-            <p> Hi, I&apos;m Sachin Dangi</p>
+              <p> Hi, I&apos;m Sachin Dangi</p>
             </motion.h1>
 
             {/* Title */}
@@ -69,7 +69,7 @@ const Home = () => {
                   MERN Stack Developer | Passionate Coder | Problem Solver
                 </p>
                 <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 text-2xl sm:text-base md:text-xl text-gray-300">
-                 
+
                 </p>
               </div>
               <TypingTitle />
@@ -88,19 +88,33 @@ const Home = () => {
             </motion.p>
 
             {/* Social Links */}
+
             <motion.div
               className="flex flex-wrap gap-3 mt-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
+              <a href="/SachinDangiResume.pdf" download>
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 20px -10px rgba(37, 99, 235, 0.6)" }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center   
+                  text-gray font-medium px-6 gap-2 py-2 rounded-full
+                   shadow-lg transition-all group border"
+                >
+                  <FaDownload className="group-hover:animate-bounce" />
+                  <span>Download Cv</span>
+                </motion.button>
+              </a>
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 ${link.color} transition-all hover:shadow-lg`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full bg-white/5
+                     backdrop-blur-sm border border-white/10 ${link.color} transition-all hover:shadow-lg`}
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
@@ -108,7 +122,7 @@ const Home = () => {
                   transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
                 >
                   {link.icon}
-                  <span>{link.name}</span>
+                  {/* <span>{link.name}</span> */}
                 </motion.a>
               ))}
             </motion.div>

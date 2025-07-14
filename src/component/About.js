@@ -17,7 +17,7 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="py-12 px-4 sm:px-6 lg:px-8  text-white"
+      className="py-12 px-4 sm:px-6 lg:px-8  text-white overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       viewport={{  margin: "-100px" }}
@@ -153,7 +153,7 @@ const About = () => {
               className="pt-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 1 }}
               viewport={{ once: true }}
             >
               <a href="/SachinDangiResume.pdf" download>
