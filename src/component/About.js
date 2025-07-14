@@ -17,11 +17,11 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="py-12 px-4 sm:px-6 lg:px-8  text-white dark:from-gray-900 dark:to-gray-800 transition-all duration-500"
+      className="py-12 px-4 sm:px-6 lg:px-8  text-white"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8 }}
+      animate={{ opacity: 1 }}
+      viewport={{  margin: "-100px" }}
+      transition={{ duration: 1 }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Animated Heading */}
