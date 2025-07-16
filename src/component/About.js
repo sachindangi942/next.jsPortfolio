@@ -4,8 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaDownload, FaCode, FaServer, FaCloud, FaBrain } from "react-icons/fa";
 import { FiFigma } from "react-icons/fi";
+import { usePathname } from "next/navigation";
 
 const About = () => {
+
+  const pathname = usePathname();
+  const isAboutPage = pathname === "/about"
   const skills = [
     { name: "Frontend", icon: <FaCode className="text-blue-500" />, items: ["React.js", "Next.js", "Tailwind CSS"] },
     { name: "Backend", icon: <FaServer className="text-purple-500" />, items: ["Node.js", "Express", "MongoDB"] },
@@ -14,13 +18,15 @@ const About = () => {
     { name: "Soft Skills", icon: <FaBrain className="text-green-500" />, items: ["Problem Solving", "Teamwork", "Communication"] },
   ];
 
+
   return (
     <motion.section
       id="about"
-      className="py-12 px-4 sm:px-6 lg:px-8  text-white overflow-hidden"
+      className="py-12 px-4 sm:px-6 lg:px-8  text-white"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      viewport={{  margin: "-100px" }}
+      animate={isAboutPage ? {opacity:1,y:0}: undefined}
+      whileInView={!isAboutPage ? {opacity:1, y:0 } : undefined}
+      viewport={{once:false}}
       transition={{ duration: 1 }}
     >
       <div className="max-w-7xl mx-auto">
@@ -57,10 +63,12 @@ const About = () => {
             className="relative w-full max-w-md lg:w-1/3 -mt-4 lg:sticky lg:top-24 self-start"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            viewport={{ once: true }}
+            transition={{ duration: 1, type: "spring" }}
+            viewport={{ once: false}}
           >
-            <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl border-8 border-white dark:border-gray-800 ring-2 ring-blue-500/30 dark:ring-blue-400/20">
+            <div className="relative aspect-square rounded-2xl overflow-hidden
+             shadow-2xl border-8 border-white dark:border-gray-800 ring-2 ring-blue-500/30
+              dark:ring-blue-400/20">
               <Image
                 src="/aboutImg.jpg"
                 alt="Sachin Dangi"
@@ -79,8 +87,8 @@ const About = () => {
             className="w-full lg:w-2/3 space-y-8"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            viewport={{ once: true }}
+            transition={{ duration: 1, type: "spring" }}
+            viewport={{ once: false }}
           >
             <div className="space-y-6 text-gray-300 dark:text-gray-300 text-lg">
               <motion.p
@@ -88,7 +96,7 @@ const About = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 Hi, I'm <span className="text-blue-600 dark:text-blue-400 font-bold">Sachin Dangi</span> — a passionate MERN Stack Developer dedicated to crafting exceptional digital experiences.
               </motion.p>
@@ -97,7 +105,7 @@ const About = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                viewport={{ once: true }}
+                viewport={{ once:false}}
               >
                 With expertise in <span className="font-semibold text-blue-300 dark:text-blue-400">React.js</span>, 
                 <span className="font-semibold text-purple-500 dark:text-purple-400">Node.js</span>, and modern web technologies, I build scalable applications that are both performant and visually stunning. My approach combines technical precision with creative problem-solving.
@@ -107,7 +115,7 @@ const About = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 I hold a <span className="font-semibold">B.Tech in Computer Science</span> and gained practical experience through a 6-month internship at <span className="font-semibold">Vanjain Technology</span>, where I worked with Firebase and MongoDB to develop real-time applications.
               </motion.p>
@@ -119,7 +127,7 @@ const About = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              viewport={{ once: true }}
+              viewport={{ once:false }}
             >
               {skills.map((skill, index) => (
                 <motion.div
@@ -130,7 +138,7 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + index * 0.1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                 >
                   <div className="flex items-center gap-3 mb-2">
                     <div className="text-xl">{skill.icon}</div>
@@ -154,7 +162,7 @@ const About = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               <a href="/SachinDangiResume.pdf" download>
                 <motion.button
