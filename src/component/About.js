@@ -66,7 +66,7 @@ const About = () => {
             transition={{ duration: 1, type: "spring" }}
             viewport={{ once: false}}
           >
-            <div className="relative aspect-square rounded-2xl overflow-hidden
+            <div className="relative rounded-2xl overflow-hidden
              shadow-2xl border-8 border-white dark:border-gray-800 ring-2 ring-blue-500/30
               dark:ring-blue-400/20">
               <Image
