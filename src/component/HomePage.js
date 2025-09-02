@@ -163,7 +163,7 @@ const Home = () => {
               {/* Main Image */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl group">
                 <Image
-                  src="/myimg.bab1f4385475a627325f.png"
+                  src="/aboutImg.jpg"
                   alt="Sachin Dangi"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
