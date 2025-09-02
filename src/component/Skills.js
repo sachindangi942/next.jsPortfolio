@@ -148,7 +148,7 @@ import {
 } from "react-icons/si";
 
 const skills = [
-  {name:"Python",icon:<SiPython size={50} className="text-black" />},
+  {name:"Python",icon:<SiPython size={50} className="text-green-600" />},
   { name: "Next.js", icon: <SiNextdotjs size={50} className="text-black dark:text-white" /> },
   { name: "React.js", icon: <FaReact size={50} className="text-blue-500" /> },
   { name: "Redux", icon: <SiRedux size={50} className="text-purple-600" /> },
