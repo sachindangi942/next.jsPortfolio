@@ -145,10 +145,13 @@ import {
   SiMaterialdesign,
   SiNextdotjs,
   SiPython,
+  SiTailwindcss,
+  SiRender,
+  SiVercel,
 } from "react-icons/si";
 
 const skills = [
-  {name:"Python",icon:<SiPython size={50} className="text-green-600" />},
+  { name: "Python", icon: <SiPython size={50} className="text-green-600" /> },
   { name: "Next.js", icon: <SiNextdotjs size={50} className="text-black dark:text-white" /> },
   { name: "React.js", icon: <FaReact size={50} className="text-blue-500" /> },
   { name: "Redux", icon: <SiRedux size={50} className="text-purple-600" /> },
@@ -157,7 +160,7 @@ const skills = [
   { name: "MongoDB", icon: <SiMongodb size={50} className="text-green-500" /> },
   { name: "JavaScript", icon: <SiJavascript size={50} className="text-yellow-400" /> },
   { name: "HTML", icon: <SiHtml5 size={50} className="text-red-500" /> },
-  { name: "CSS", icon: <SiCss3 size={50} className="text-blue-400" /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss size={50} className="text-sky-400" /> },
   { name: "React-Bootstrap", icon: <FaReact size={50} className="text-blue-500" /> },
   { name: "Ant Design", icon: <SiAntdesign size={50} className="text-blue-600" /> },
   { name: "Material UI", icon: <SiMaterialdesign size={50} className="text-indigo-500" /> },
@@ -169,10 +172,12 @@ const tools = [
   { name: "Postman", icon: <SiPostman size={50} className="text-orange-500" /> },
   { name: "VS Code", icon: <FaMicrosoft size={50} className="text-blue-500" /> },
   { name: "AWS", icon: <FaAws size={50} className="text-yellow-500" /> },
-  { name: "Docker", icon: <SiDocker size={50} className="text-blue-400" /> },
   { name: "S3 Bucket", icon: <FaAws size={50} className="text-yellow-500" /> },
   { name: "EC2", icon: <FaAws size={50} className="text-yellow-500" /> },
   { name: "Amplify Hosting", icon: <FaAws size={50} className="text-yellow-500" /> },
+  { name: "Render", icon: <SiRender size={50} className="text-indigo-500" /> },
+  { name: "Vercel", icon: <SiVercel size={50} className="text-black dark:text-white" /> },
+
 ];
 
 const Skills = () => {

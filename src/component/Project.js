@@ -25,7 +25,7 @@ const projects = [
     title: "E-Commerce Website",
     description: `A powerful and scalable full-stack e-commerce platform built using the MERN stack. Designed to support large product catalogs, secure user authentication, seamless shopping cart functionality, and integrated payment systems.`,
     technologies: ["React.js","Redux", "Node.js", "Express.js", "MongoDB","JWT Authenticatin","Payment Gateway", "React-Bootstrap","Ant Design"],
-    liveLink: "https://your-restaurant-app.com",
+    liveLink: "https://e-com-web-opal.vercel.app",
     githubLink: "https://github.com/sachindangi942/E-com-web.git",
     images: [
       "/ecomImg/homePage.png",
