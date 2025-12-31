@@ -67,11 +67,18 @@ images:[
 ]
   },
   {
-    title: "User Registration System",
-    description: "A secure user registration and authentication system with encrypted passwords.",
-    technologies: ["React.js", "Redux", "Node.js", "MongoDB"],
-    liveLink: "https://your-registration-app.com",
-    githubLink: "https://github.com/sachindangi942/user-registration",
+    title: " ExamPrep Mock Test Platform",
+    description: "Developed a full-stack web application for online MCQs and mock tests for SSC and other competitive exams using Node.js, Express.js, and JWT-based authentication with role-based access. Built a responsive UI with React.js and Ant Design, integrated MongoDB for data management, hosted the frontend on Vercel and backend on Render, and used AWS S3 for secure image storage",
+    technologies: ["React.js", "Redux", "Node.js", "MongoDB","Ant Design","AWS S3", "Render.com","vercel"],
+    liveLink: "https://examyatracom.vercel.app",
+    // githubLink: "https://github.com/sachindangi942/user-registration",
+    images:[
+      "/examyatraImg/StDeshboard.png",
+      "/examyatraImg/stLoginPage.png",
+      "/examyatraImg/stTestPage.png",
+      "/examyatraImg/stPymentpage.png",
+      "/examyatraImg/stLogoutPage.png"
+    ]
   },
   {
     title: "Portfolio Website",
